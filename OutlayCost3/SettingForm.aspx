@@ -18,8 +18,18 @@
                     <div class="col-md-1">
                         <asp:DropDownList ID="CompanyTypeList" runat="server" DataSourceID="TypeOfCompanies" DataTextField="cabbr" DataValueField="ctype_id" CssClass="form-control"></asp:DropDownList>
                     </div>
-                    <div class="col-md-9 col-md-offset-9">
-                        <asp:TextBox runat="server" ID="co_name" CssClass="form-control" TextMode="SingleLine" />
+                    <div class="col-md-9">
+                        <asp:TextBox runat="server" ID="co_name" CssClass="form-control" TextMode="MultiLine" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="co_name"
+                            CssClass="text-danger" ErrorMessage="Наименование компании заполнять обязательно." />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <asp:Label runat="server" CssClass="col-md-2 control-label">Юридический адрес</asp:Label>
+                    <div class="col-md-9">
+                        <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" TextMode="MultiLine" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="co_name"
                             CssClass="text-danger" ErrorMessage="Наименование компании заполнять обязательно." />
                     </div>
