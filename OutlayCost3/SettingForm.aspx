@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Дополнительные данные" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SettingForm.aspx.cs" Inherits="OutlayCost3.SettingForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
+    <h2><%: Title %></h2>
     <p class="text-danger">
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>
@@ -15,11 +15,11 @@
             <div class="row">
                 <div class="form-group">
                     <asp:Label runat="server" AssociatedControlID="CompanyTypeList" CssClass="col-md-2 control-label">Название компании</asp:Label>
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <asp:DropDownList ID="CompanyTypeList" runat="server" DataSourceID="TypeOfCompanies" DataTextField="cabbr" DataValueField="ctype_id" CssClass="form-control"></asp:DropDownList>
                     </div>
-                    <div class="col-md-9">
-                        <asp:TextBox runat="server" ID="co_name" CssClass="form-control" TextMode="MultiLine" />
+                    <div class="col-md-8">
+                        <asp:TextBox runat="server" ID="co_name" CssClass="form-control" TextMode="SingleLine" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="co_name"
                             CssClass="text-danger" ErrorMessage="Наименование компании заполнять обязательно." />
                     </div>
@@ -27,12 +27,46 @@
             </div>
             <div class="row">
                 <div class="form-group">
-                    <asp:Label runat="server" CssClass="col-md-2 control-label">Юридический адрес</asp:Label>
+                    <asp:Label runat="server" AssociatedControlID="legal_address" CssClass="col-md-3 control-label">Юридический адрес</asp:Label>
                     <div class="col-md-9">
-                        <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" TextMode="MultiLine" />
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="co_name"
-                            CssClass="text-danger" ErrorMessage="Наименование компании заполнять обязательно." />
+                        <asp:TextBox runat="server" ID="legal_address" CssClass="form-control" TextMode="SingleLine" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="legal_address"
+                            CssClass="text-danger" ErrorMessage="Юридический адрес заполнять обязательно." />
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <asp:Label runat="server" AssociatedControlID="legal_address" CssClass="col-md-3 control-label">Фактический адрес</asp:Label>
+                    <div class="col-md-9">
+                        <asp:TextBox runat="server" ID="actual_address" CssClass="form-control" TextMode="SingleLine" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="actual_address"
+                            CssClass="text-danger" ErrorMessage="Фактический адрес заполнять обязательно." />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <asp:Label runat="server" AssociatedControlID="site" CssClass="col-md-3 control-label">Фактический адрес</asp:Label>
+                    <div class="col-md-9">
+                        <asp:TextBox runat="server" ID="site" CssClass="form-control" TextMode="SingleLine" />
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Контактное лицо</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <asp:Label runat="server" AssociatedControlID="fm" CssClass="col-md-3 control-label">Фамилия</asp:Label>
+                            <div class="col-md-9">
+                                <asp:TextBox runat="server" ID="fm" CssClass="form-control" TextMode="SingleLine" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="fm"
+                                    CssClass="text-danger" ErrorMessage="Фамилию заполнять обязательно." />
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
