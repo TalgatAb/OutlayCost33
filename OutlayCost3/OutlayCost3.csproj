@@ -191,6 +191,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\building1.jpg" />
     <Content Include="OwnCabinet.aspx" />
+    <Content Include="Providers.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -394,6 +395,13 @@
       <DependentUpon>OwnCabinet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers.aspx.cs">
+      <DependentUpon>Providers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Providers.aspx.designer.cs">
+      <DependentUpon>Providers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

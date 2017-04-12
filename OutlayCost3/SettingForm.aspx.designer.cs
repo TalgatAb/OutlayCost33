@@ -166,6 +166,15 @@ namespace OutlayCost3 {
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
         
         /// <summary>
+        /// RegionsList элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList RegionsList;
+        
+        /// <summary>
         /// PostBtn элемент управления.
         /// </summary>
         /// <remarks>
@@ -182,5 +191,14 @@ namespace OutlayCost3 {
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource TypeOfCompanies;
+        
+        /// <summary>
+        /// Regions элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource Regions;
     }
 }
