@@ -70,7 +70,7 @@
                             <div class="col-md-9">
                                 <asp:TextBox runat="server" ID="txtFm" CssClass="form-control" TextMode="SingleLine" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtFm"
-                                    CssClass="text-danger" ErrorMessage="Фамилию заполнять обязательно." />
+                                    CssClass="text-danger" ErrorMessage="Не заполнена Фамилия" />
                             </div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                             <div class="col-md-9">
                                 <asp:TextBox runat="server" ID="txtNm" CssClass="form-control" TextMode="SingleLine" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtNm"
-                                    CssClass="text-danger" ErrorMessage="Имя контактного лица заполнять обязательно." />
+                                    CssClass="text-danger" ErrorMessage="Не заполнено Имя" />
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                             <div class="col-md-9">
                                 <asp:TextBox runat="server" ID="txtPosition" CssClass="form-control" TextMode="SingleLine" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtPosition"
-                                    CssClass="text-danger" ErrorMessage="Должность заполнять обязательно." />
+                                    CssClass="text-danger" ErrorMessage="Не заполнено поле должность" />
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="form-group">
                             <asp:Label runat="server" AssociatedControlID="txtPhone2" CssClass="col-md-3 control-label">Телефон 2</asp:Label>
@@ -124,9 +123,37 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="row">
+                        <div class="form-group">
+                            <asp:Label runat="server" AssociatedControlID="txtFax" CssClass="col-md-3 control-label">Телефон 2</asp:Label>
+                            <div class="col-md-9">
+                                <asp:TextBox runat="server" ID="txtFax" CssClass="form-control" TextMode="Phone" />
+                                <small class="text-muted">Пример ввода телефона: +7 (XXX) XXX XXXX</small>
+                                <asp:RegularExpressionValidator ID="FaxValidator" runat="server" CssClass="text-danger" ErrorMessage="Неверный номер телефона" ControlToValidate="txtFax" ValidationExpression="\+7 \(?\d{3}\)?-? *\d{3}-? *-?\d{4}"></asp:RegularExpressionValidator>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <asp:Label runat="server" AssociatedControlID="txtDescription" CssClass="col-md-3 control-label">Деятельность компании</asp:Label>
+                    <div class="col-md-9">
+                        <asp:TextBox runat="server" ID="txtDescription" CssClass="form-control" TextMode="MultiLine" />
+                        <small class="text-muted">Описание должно быть не менее 50 символов</small>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDescription"
+                            CssClass="text-danger" ErrorMessage="Описание должно быть не менее 50 символов" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-10">
+                    <asp:Button ID="PostBtn" runat="server" Text="Регистрация" CssClass="btn btn-default" OnClick="PostBtn_Click" />
+                </div>
+            </div>
+
         </div>
         <div id="person" class="tab-pane fade">
             <h3>Person</h3>

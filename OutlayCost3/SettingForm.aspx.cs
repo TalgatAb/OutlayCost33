@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,16 @@ namespace OutlayCost3
       protected void Page_Load(object sender, EventArgs e)
       {
 
+      }
+
+      protected void PostBtn_Click(object sender, EventArgs e)
+      {
+         if (Context.User.Identity.IsAuthenticated)
+         {
+            string usrId = Context.User.Identity.GetUserId();
+
+         }
+         
       }
    }
 }
