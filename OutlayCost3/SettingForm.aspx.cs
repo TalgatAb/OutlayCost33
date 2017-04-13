@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 
 namespace OutlayCost3
 {
@@ -62,6 +64,7 @@ namespace OutlayCost3
 
       protected void PostBtn_Click(object sender, EventArgs e)
       {
+         int uTypeId = string.IsNullOrEmpty(txtCompanyName.Text) ? 1 : 2;
          if (Context.User.Identity.IsAuthenticated)
          {
             string usrId = Context.User.Identity.GetUserId();
@@ -77,7 +80,7 @@ namespace OutlayCost3
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "MergeUserProfiles";
                         cmd.Parameters.Add("@usr_id", SqlDbType.NVarChar, 128).Value = usrId;
-                        cmd.Parameters.Add("@utype_id", SqlDbType.Int).Value = string.IsNullOrEmpty(txtCompanyName.Text) ? 1 : 2;
+                        cmd.Parameters.Add("@utype_id", SqlDbType.Int).Value = uTypeId;
                         cmd.Parameters.Add("@ctype_id", SqlDbType.Int).Value = int.Parse(CompanyTypeList.SelectedValue);
                         cmd.Parameters.Add("@reg_id", SqlDbType.NChar, 2).Value = RegionsList.SelectedValue;
                         cmd.Parameters.Add("@co_name", SqlDbType.NVarChar, 150).Value = txtCompanyName.Text;
@@ -95,6 +98,21 @@ namespace OutlayCost3
                         cmd.Parameters.Add("@is_agreement", SqlDbType.Bit).Value = true;
                         cmd.Parameters.Add("@reg_date", SqlDbType.DateTime).Value = DateTime.Now;
                         cmd.ExecuteNonQuery();
+
+                        var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                        var roles = manager.GetRoles(usrId);
+                        if (uTypeId == (int)AppUtils.uTypes.utype_company)
+                        {
+                           if (!roles.Contains("Company"))
+                           {
+                              manager.AddToRole(usrId, "Company");
+                           }
+                        }
+                        else
+                        {
+                           manager.RemoveFromRole(usrId, "Company");
+                        }
+
                         Response.Redirect("~/OwnCabinet.aspx", true);
                      }
                   }

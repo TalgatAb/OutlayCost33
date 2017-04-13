@@ -1,6 +1,27 @@
 ﻿<%@ Page Title="Дополнительные данные" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SettingForm.aspx.cs" Inherits="OutlayCost3.SettingForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //$(".nav-tabs a").click(function () {
+            //    $(this).tab('show');
+            //});
+            $('.nav-tabs a').on('shown.bs.tab', function (event) {
+                var tab_a = $(event.target).text();         // active tab
+                var tab_p = $(event.relatedTarget).text();  // previous tab
+                if (tab_p.is("company"))
+                {
+                    $('input[name="txtFm2"]').val('some value')
+                }
+
+                $('.txtFm2').find('input').val("fgg");
+
+                //$(".act span").text(x);
+                //$(".prev span").text(y);
+            });
+        });
+    </script>
+
     <h2><%: Title %></h2>
 
     <p class="text-danger">
@@ -152,7 +173,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <div class="col-md-offset-4 col-md-10">
                     <asp:Button ID="PostBtn" runat="server" Text="Сохранить" CssClass="btn btn-default" OnClick="PostBtn_Click" />
@@ -162,11 +183,40 @@
         </div>
 
         <div id="person" class="tab-pane fade">
-            <h3>Person</h3>
+            <div class="row">
+                <div class="form-group">
+                    <asp:Label runat="server" AssociatedControlID="txtFm2" CssClass="col-md-3 control-label">Фамилия</asp:Label>
+                    <div class="col-md-9">
+                        <asp:TextBox runat="server" ID="txtFm2" CssClass="form-control" TextMode="SingleLine" placeholder="Фамилия" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtFm2"
+                            CssClass="text-danger" ErrorMessage="Не заполнена Фамилия" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <asp:Label runat="server" AssociatedControlID="txtNm2" CssClass="col-md-3 control-label">Имя</asp:Label>
+                    <div class="col-md-9">
+                        <asp:TextBox runat="server" ID="txtNm2" CssClass="form-control" TextMode="SingleLine" placeholder="Имя" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtNm2"
+                            CssClass="text-danger" ErrorMessage="Не заполнено Имя" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <asp:Label runat="server" AssociatedControlID="txtFt2" CssClass="col-md-3 control-label">Отчество</asp:Label>
+                    <div class="col-md-9">
+                        <asp:TextBox runat="server" ID="txtFt2" CssClass="form-control" TextMode="SingleLine" placeholder="Отчество" />
+                        <small class="text-muted">&nbsp</small>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div>
         <asp:SqlDataSource ID="TypeOfCompanies" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [TypeOfCompanies]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="Regions" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [Regions]"></asp:SqlDataSource>
     </div>
+
 </asp:Content>
