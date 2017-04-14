@@ -1,26 +1,6 @@
 ﻿<%@ Page Title="Дополнительные данные" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SettingForm.aspx.cs" Inherits="OutlayCost3.SettingForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <script type="text/javascript">
-        $(document).ready(function () {
-            //$(".nav-tabs a").click(function () {
-            //    $(this).tab('show');
-            //});
-            $('.nav-tabs a').on('shown.bs.tab', function (event) {
-                var tab_a = $(event.target).text();         // active tab
-                var tab_p = $(event.relatedTarget).text();  // previous tab
-                if (tab_p.is("company"))
-                {
-                    $('input[name="txtFm2"]').val('some value')
-                }
-
-                $('.txtFm2').find('input').val("fgg");
-
-                //$(".act span").text(x);
-                //$(".prev span").text(y);
-            });
-        });
-    </script>
 
     <h2><%: Title %></h2>
 
@@ -218,5 +198,26 @@
         <asp:SqlDataSource ID="TypeOfCompanies" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [TypeOfCompanies]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="Regions" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [Regions]"></asp:SqlDataSource>
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //$(".nav-tabs a").click(function () {
+            //    $(this).tab('show');
+            //});
+            $('.nav-tabs a').on('shown.bs.tab', function (event) {
+                var tab_a = $(event.target).text();         // active tab
+                var tab_p = $(event.relatedTarget).text();  // previous tab
+                if (tab_p.is("company"))
+                {
+                    $('input[name="txtFm2"]').val('some value')
+                }
+
+                alert($('.txtFm2').find('input').text());
+
+                //$(".act span").text(x);
+                //$(".prev span").text(y);
+            });
+        });
+    </script>
 
 </asp:Content>
