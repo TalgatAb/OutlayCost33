@@ -82,6 +82,13 @@
                                     </dx:GridViewDataTextColumn>
                                     <dx:GridViewDataTextColumn FieldName="reg_id" ShowInCustomizationForm="True" Visible="False" VisibleIndex="9">
                                     </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn Caption="Цены поставщиков" ShowInCustomizationForm="True" VisibleIndex="10">
+                                        <DataItemTemplate>
+                                            <a id="clickElement" target="_blank" href="Default2.aspx?id=<%# GetRowValue(Container)%>"><%# Eval("avg_price").ToString() %></a>
+                                        </DataItemTemplate>
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn Caption="Ср. цена" FieldName="avg_price" ShowInCustomizationForm="True" Visible="False" VisibleIndex="11">
+                                    </dx:GridViewDataTextColumn>
                                 </Columns>
                             </dx:ASPxGridView>
                         </dx:SplitterContentControl>
@@ -95,7 +102,7 @@
         <asp:SqlDataSource ID="SectionTrees" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" OldValuesParameterFormatString="old_{0}" SelectCommand="SELECT * FROM [SectionTrees]">
 
         </asp:SqlDataSource>
-        <asp:SqlDataSource ID="Materials" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" DeleteCommand="DELETE FROM [Materials] WHERE [mater_id] = @old_mater_id" InsertCommand="INSERT INTO [Materials] ([sec_id], [code], [mater_name], [unit_id], [class_weight], [gross_weight], [release_price], [calculate_price], [reg_id]) VALUES (@sec_id, @code, @mater_name, @unit_id, @class_weight, @gross_weight, @release_price, @calculate_price, @reg_id)" OldValuesParameterFormatString="old_{0}" SelectCommand="GetMaterials" UpdateCommand="UPDATE [Materials] SET [sec_id] = @sec_id, [code] = @code, [mater_name] = @mater_name, [unit_id] = @unit_id, [class_weight] = @class_weight, [gross_weight] = @gross_weight, [release_price] = @release_price, [calculate_price] = @calculate_price, [reg_id] = @reg_id WHERE [mater_id] = @old_mater_id" SelectCommandType="StoredProcedure">
+        <asp:SqlDataSource ID="Materials" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" DeleteCommand="DELETE FROM [Materials] WHERE [mater_id] = @old_mater_id" InsertCommand="INSERT INTO [Materials] ([sec_id], [code], [mater_name], [unit_id], [class_weight], [gross_weight], [release_price], [calculate_price], [reg_id], [avg_price]) VALUES (@sec_id, @code, @mater_name, @unit_id, @class_weight, @gross_weight, @release_price, @calculate_price, @reg_id, @avg_price)" OldValuesParameterFormatString="old_{0}" SelectCommand="GetMaterials" UpdateCommand="UPDATE [Materials] SET [sec_id] = @sec_id, [code] = @code, [mater_name] = @mater_name, [unit_id] = @unit_id, [class_weight] = @class_weight, [gross_weight] = @gross_weight, [release_price] = @release_price, [calculate_price] = @calculate_price, [reg_id] = @reg_id, [avg_price] = @avg_price WHERE [mater_id] = @old_mater_id" SelectCommandType="StoredProcedure">
             <DeleteParameters>
                 <asp:Parameter Name="old_mater_id" Type="Int32" />
             </DeleteParameters>
@@ -109,6 +116,7 @@
                 <asp:Parameter Name="release_price" Type="Decimal" />
                 <asp:Parameter Name="calculate_price" Type="Decimal" />
                 <asp:Parameter Name="reg_id" Type="String" />
+                <asp:Parameter Name="avg_price" Type="Decimal" />
             </InsertParameters>
             <SelectParameters>
                 <asp:SessionParameter Name="sec_id" SessionField="sec_id" Type="Int32" />
@@ -125,6 +133,7 @@
                 <asp:Parameter Name="calculate_price" Type="Decimal" />
                 <asp:Parameter Name="reg_id" Type="String" />
                 <asp:Parameter Name="old_mater_id" Type="Int32" />
+                <asp:Parameter Name="avg_price" Type="Decimal" />
             </UpdateParameters>
         </asp:SqlDataSource>
     </div>

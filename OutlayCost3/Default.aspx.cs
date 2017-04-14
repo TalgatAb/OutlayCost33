@@ -38,5 +38,10 @@ namespace OutlayCost3
 
       }
 
+      protected string GetRowValue(GridViewDataItemTemplateContainer container)
+      {
+         return container.Grid.GetRowValuesByKeyValue(container.KeyValue, "avg_price").ToString();
+      }
+
    }
 }
