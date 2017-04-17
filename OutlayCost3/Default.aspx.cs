@@ -1,11 +1,7 @@
 ﻿using DevExpress.Web;
 using DevExpress.Web.ASPxTreeList;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace OutlayCost3
 {
@@ -40,7 +36,7 @@ namespace OutlayCost3
 
       protected string GetRowValue(GridViewDataItemTemplateContainer container)
       {
-         return container.Grid.GetRowValuesByKeyValue(container.KeyValue, "avg_price").ToString();
+         return container.Grid.GetRowValuesByKeyValue(container.KeyValue, "mater_id").ToString();
       }
 
    }

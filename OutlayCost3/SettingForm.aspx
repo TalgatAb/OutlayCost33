@@ -10,7 +10,7 @@
     <asp:ValidationSummary runat="server" CssClass="text-danger" />
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#company">Компания</a></li>
-        <li><a data-toggle="tab" href="#person">Частное лицо</a></li>
+        <%--<li><a data-toggle="tab" href="#person">Частное лицо</a></li>--%>
     </ul>
     <div class="tab-content">
         <div id="company" class="tab-pane fade in active">
@@ -162,7 +162,7 @@
 
         </div>
 
-        <div id="person" class="tab-pane fade">
+        <%--        <div id="person" class="tab-pane fade">
             <div class="row">
                 <div class="form-group">
                     <asp:Label runat="server" AssociatedControlID="txtFm2" CssClass="col-md-3 control-label">Фамилия</asp:Label>
@@ -192,32 +192,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--%>
     </div>
     <div>
         <asp:SqlDataSource ID="TypeOfCompanies" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [TypeOfCompanies]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="Regions" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [Regions]"></asp:SqlDataSource>
     </div>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            //$(".nav-tabs a").click(function () {
-            //    $(this).tab('show');
-            //});
-            $('.nav-tabs a').on('shown.bs.tab', function (event) {
-                var tab_a = $(event.target).text();         // active tab
-                var tab_p = $(event.relatedTarget).text();  // previous tab
-                if (tab_p.is("company"))
-                {
-                    $('input[name="txtFm2"]').val('some value')
-                }
-
-                alert($('.txtFm2').find('input').text());
-
-                //$(".act span").text(x);
-                //$(".prev span").text(y);
-            });
-        });
-    </script>
 
 </asp:Content>

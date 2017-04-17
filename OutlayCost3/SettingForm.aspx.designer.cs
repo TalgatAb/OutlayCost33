@@ -184,33 +184,6 @@ namespace OutlayCost3 {
         protected global::System.Web.UI.WebControls.Button PostBtn;
         
         /// <summary>
-        /// txtFm2 элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFm2;
-        
-        /// <summary>
-        /// txtNm2 элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNm2;
-        
-        /// <summary>
-        /// txtFt2 элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFt2;
-        
-        /// <summary>
         /// TypeOfCompanies элемент управления.
         /// </summary>
         /// <remarks>

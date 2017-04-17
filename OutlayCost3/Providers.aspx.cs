@@ -16,10 +16,13 @@ namespace OutlayCost3
 
       protected void UserProfilesGridView_CustomCallback(object sender, DevExpress.Web.ASPxGridViewCustomCallbackEventArgs e)
       {
-         int rowIndex = int.Parse(e.Parameters);
-         string reg_id = RegionsGridView.GetRowValues(rowIndex, "reg_id").ToString();
-         Session["reg_id"] = reg_id;
-         UserProfilesGridView.DataBind();
+         if (e.Parameters.Length > 0)
+         {
+            int rowIndex = int.Parse(e.Parameters);
+            object reg_id = RegionsGridView.GetRowValues(rowIndex, "reg_id");
+            Session["reg_id"] = reg_id;
+            UserProfilesGridView.DataBind();
+         }
       }
    }
 }
