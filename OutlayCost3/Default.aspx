@@ -9,6 +9,14 @@
          background-color: antiquewhite;
       }
    </style>
+
+   <script type="text/javascript">
+      function OnMoreInfoClick(contentUrl) {
+         clientPopupControl.SetContentUrl(contentUrl);
+         clientPopupControl.Show();
+      }
+   </script>
+
    <div>
 
       <dx:ASPxSplitter ID="MainSplitter" runat="server" Height="100%" Width="100%">
@@ -82,7 +90,7 @@
                            </dx:GridViewDataTextColumn>
                            <dx:GridViewDataTextColumn FieldName="reg_id" ShowInCustomizationForm="True" Visible="False" VisibleIndex="9">
                            </dx:GridViewDataTextColumn>
-                           <dx:GridViewDataTextColumn Caption="Ср. цена &#9759" ShowInCustomizationForm="True" VisibleIndex="10">
+                           <dx:GridViewDataTextColumn Caption="Ср. цена &#9759" ShowInCustomizationForm="True" VisibleIndex="10" Name="avg_price_column">
                               <DataItemTemplate>
                                  <a id="view_avg_price" target="_blank" href="Default2.aspx?id=<%# GetRowValue(Container)%>"><%# Eval("avg_price").ToString() %></a>
                               </DataItemTemplate>
@@ -91,9 +99,11 @@
                            <dx:GridViewDataTextColumn Caption="Ср. цена" FieldName="avg_price" ShowInCustomizationForm="True" Visible="False" VisibleIndex="11">
                            </dx:GridViewDataTextColumn>
 
-                           <dx:GridViewDataTextColumn Caption="Ценов.предл. &#9759" ShowInCustomizationForm="True" VisibleIndex="12">
+                           <dx:GridViewDataTextColumn Caption="Ценов.предл. &#9759" ShowInCustomizationForm="True" VisibleIndex="12" Name="price_offer_column">
                               <DataItemTemplate>
-                                 <a id="price_offer" target="_blank" href="Default2.aspx?id=<%# GetRowValue(Container)%>"><%# Eval("avg_price").ToString() %></a>
+                                 <dx:ASPxHyperLink ID="hyperLink" runat="server" OnInit="hyperLink_Init">
+                                 </dx:ASPxHyperLink>
+                                 <%--<a id="price_offer" target="_blank" href="PriceOffers.aspx?mater_id=<%# GetRowValue(Container)%>&usrId=<%# Context.User.Identity.GetUserId() %>"><%# Eval("avg_price").ToString() %></a>--%>
                               </DataItemTemplate>
                            </dx:GridViewDataTextColumn>
                         </Columns>
@@ -141,5 +151,13 @@
             <asp:Parameter Name="avg_price" Type="Decimal" />
          </UpdateParameters>
       </asp:SqlDataSource>
+   </div>
+   <div>
+      <dx:ASPxPopupControl ID="popupControl" runat="server" ClientInstanceName="clientPopupControl" CloseAction="CloseButton" Height="500px" Modal="True" Width="1000px" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" AllowDragging="True" AllowResize="True" CloseOnEscape="True" HeaderText="Ценовое предложение">
+         <ContentCollection>
+            <dx:PopupControlContentControl runat="server">
+            </dx:PopupControlContentControl>
+         </ContentCollection>
+      </dx:ASPxPopupControl>
    </div>
 </asp:Content>
