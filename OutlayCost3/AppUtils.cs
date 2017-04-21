@@ -12,51 +12,12 @@ namespace OutlayCost3
 {
    public class AppUtils
    {
-      // Объекты, таблицы:
-      // au_jour = 1 - Акт прием-передачи ТС
-      // au_bid  = 2 - Заявки на ТС
-      // au_way  = 3 - Путевой лист
-      //TAutoObj = (au_jour = 1, au_bid = 2, au_way = 3);
+      // Тип пользователя
+      // utype_person = 1 - Частное лицо
+      // utype_company  = 2 - Компания
       [Flags]
-      public enum TransObjTypes : short { obj_jour = 1, obj_bid = 2, obj_way = 3 };
+      public enum uTypes : int { utype_person = 1, utype_company = 2 };
 
-      //bid_state_id bid_state_name
-      //1	В работе
-      //2	Отклонено
-      //3	Перенесено
-      //4	Выполнено
-      [Flags]
-      public enum BidStates : Int16
-      {
-         [Description("В работе")]
-         on_job = 1,
-         [Description("Отклонено")]
-         rejected = 2,
-         [Description("Перенесено")]
-         moving = 3,
-         [Description("Выполнено")]
-         done = 4
-      };
-
-      //state_id state_name
-      //1	Исправен
-      //2	В ремонте
-      //3	Поломка
-      //4	Резерв
-      //5	ТО/ППР
-      public enum VehicleStates : Int16
-      {
-         [Description("Исправен")]
-         functional = 1,
-         [Description("В ремонте")]
-         repair = 2,
-         [Description("Поломка")]
-         fritz = 3,
-         [Description("Резерв")]
-         reserve = 4,
-         [Description("ТО / ППР")]
-         ppr = 5
-      }
 
       static String connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 

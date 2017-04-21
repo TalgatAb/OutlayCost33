@@ -10,78 +10,51 @@
 namespace OutlayCost3 {
     
     
-    public partial class _Default {
+    public partial class Providers {
         
         /// <summary>
-        /// MainSplitter элемент управления.
+        /// ProviderSplitter элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxSplitter MainSplitter;
+        protected global::DevExpress.Web.ASPxSplitter ProviderSplitter;
         
         /// <summary>
-        /// searchText элемент управления.
+        /// RegionsGridView элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox searchText;
+        protected global::DevExpress.Web.ASPxGridView RegionsGridView;
         
         /// <summary>
-        /// searchBtn элемент управления.
+        /// UserProfilesGridView элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton searchBtn;
+        protected global::DevExpress.Web.ASPxGridView UserProfilesGridView;
         
         /// <summary>
-        /// SectionTreeList элемент управления.
+        /// UserProfiles элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList SectionTreeList;
+        protected global::System.Web.UI.WebControls.SqlDataSource UserProfiles;
         
         /// <summary>
-        /// MaterialsGridView элемент управления.
+        /// Regions элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView MaterialsGridView;
-        
-        /// <summary>
-        /// SectionTrees элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SectionTrees;
-        
-        /// <summary>
-        /// Materials элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource Materials;
-        
-        /// <summary>
-        /// popupControl элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl popupControl;
+        protected global::System.Web.UI.WebControls.SqlDataSource Regions;
     }
 }
